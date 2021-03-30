@@ -13,6 +13,8 @@ Route::get('/make_post', function(){
 
 Route::post('/post', [PostController::class, 'store']);
 
+Route::get('/post/{post}', [PostController::class, 'show']);
 
+Route::delete('post/{post}',[PostController::class, 'destroy']);
 
 ?>

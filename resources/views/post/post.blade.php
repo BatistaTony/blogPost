@@ -24,9 +24,18 @@
     </ul>
 
     <div class="post">
-        <h1>POST TITLE</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo suscipit deserunt ea est quasi illo velit ducimus eum enim consectetur voluptate quas maiores consequuntur, autem molestiae necessitatibus praesentium. Laborum hic a assumenda earum fugiat laboriosam ab quam sed optio quia?</p>
+        <h1>{{ $post['title'] }}</h1>
+        <p>{{ $post['text'] }}</p>
+
+        <form action="/post/{{ $post->id }}" method="post" >
+        @method("DELETE")
+        @csrf
+        
+        <button>Delete Post</button>
+    </form>
     </div>
+
+
 
     <br/>
     <br/>

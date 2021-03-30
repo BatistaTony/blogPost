@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
     public function index(){
 
-        $posts =  \App\Models\Post::all();
+
+      
+        $posts =  Post::all();
 
         return view('post.posts',compact('posts'));
     }
@@ -22,10 +25,23 @@ class PostController extends Controller
 
 
 
-        $post = new \App\Models\Post;
+        $post = new Post;
 
 
         $post->create($data);
+
+        return redirect('/');
+    }
+
+    public function show(Post $post){
+
+        return view('post.post', compact('post'));
+
+    }
+
+    public function destroy(Post $post){
+
+        $post->delete();
 
         return redirect('/');
     }
